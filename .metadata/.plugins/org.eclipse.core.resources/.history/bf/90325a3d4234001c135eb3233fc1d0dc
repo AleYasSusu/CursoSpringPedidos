@@ -1,0 +1,17 @@
+package com.aleDev.CursoSrpingPedidos.exception;
+
+
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+public enum ApiError {
+
+    DADOS_INVALIDOS,
+    DADO_NAO_ENCONTRADO;
+    private final String message = "";
+
+}

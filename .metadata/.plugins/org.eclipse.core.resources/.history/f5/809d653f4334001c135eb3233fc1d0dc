@@ -1,0 +1,42 @@
+package com.aleDev.CursoSrpingPedidos.Service.impl;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import com.aleDev.CursoSrpingPedidos.Service.CategoriaService;
+import com.aleDev.CursoSrpingPedidos.entity.Categoria;
+import com.aleDev.CursoSrpingPedidos.exception.ApiError;
+import com.aleDev.CursoSrpingPedidos.exception.ApiErrorException;
+import com.aleDev.CursoSrpingPedidos.repository.CategoriaRepository;
+
+import io.swagger.annotations.Example;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public  class CategoriaServiceImpl implements CategoriaService{
+
+	@Autowired
+	private CategoriaRepository categoriaRepository;
+	
+	
+	 @Override
+	    public Categoria findById(Long id) {
+
+	        Optional<Categoria> opCat = categoriaRepository.findOne(Example.of(Categoria.builder().id(id).build()));
+
+	        if (opCat.isPresent()) {
+	            return opCat.get();
+	        } else {
+	            new ApiErrorException(ApiError.DADO_NAO_ENCONTRADO.getMessage(), HttpStatus.NOT_FOUND);
+	        }
+
+	        return null;
+	    }
+	}
+	
+
+

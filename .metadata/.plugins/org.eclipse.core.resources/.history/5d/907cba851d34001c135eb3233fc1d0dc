@@ -1,0 +1,60 @@
+package config;
+
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+/**
+ * Configurações de segurança e requisições.
+ */
+@Configuration
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final String[] grantedOrigins =
+            {
+                    "localhost:8080",
+                    "localhost:8085",
+                    "http://localhost:8085",
+                    "http://localhost:8080",
+            };
+
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfig = new CorsConfiguration();
+        corsConfig.setAllowCredentials(true);
+
+        Arrays.stream(grantedOrigins).forEach(origin -> {
+            corsConfig.addAllowedOrigin(origin.trim());
+        });
+
+        corsConfig.setAllowedHeaders(List.of(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN));
+        corsConfig.addAllowedHeader("Content-Type");
+        corsConfig.addAllowedHeader("Authorization");
+        corsConfig.addAllowedHeader("Content-Type");
+        corsConfig.addAllowedHeader("Accept");
+        corsConfig.addAllowedHeader("Origin");
+
+        corsConfig.addAllowedMethod("POST");
+        corsConfig.addAllowedMethod("GET");
+        corsConfig.addAllowedMethod("DELETE");
+        corsConfig.addAllowedMethod("PUT");
+        corsConfig.addAllowedMethod("OPTIONS");
+
+        source.registerCorsConfiguration("/**", corsConfig);
+
+        http.cors().configurationSource(source).and().authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers("/swagger-ui.html",
+                        "/v2/api-docs", "/webjars/**", "/swagger-resources/**").permitAll()
+                .and().authorizeRequests().and().csrf().disable();
+    }
+}

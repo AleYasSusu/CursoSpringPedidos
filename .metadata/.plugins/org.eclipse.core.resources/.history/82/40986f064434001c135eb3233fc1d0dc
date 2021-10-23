@@ -1,0 +1,7 @@
+package com.aleDev.CursoSrpingPedidos.Service;
+
+import com.aleDev.CursoSrpingPedidos.entity.Categoria;
+
+public interface CategoriaService {
+	 Categoria findById(final Long Id);
+}

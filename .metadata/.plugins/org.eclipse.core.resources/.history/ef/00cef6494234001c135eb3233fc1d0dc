@@ -1,0 +1,25 @@
+package com.aleDev.CursoSrpingPedidos.exception;
+
+
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+public enum ApiError {
+
+    DADOS_INVALIDOS("Dados inválidos"),
+    DADO_NAO_ENCONTRADO("Dado não encontrado"),
+    ERRO_LEITURA_ARQUIVO_CSV("Erro na leitura do arquivo CSV"),
+    TIPO_ARQUIVO_INVALIDO("Tipo do arquivo não é formato CSV");
+
+    ApiError(String string) {
+		this.message = "";
+		// TODO Auto-generated constructor stub
+	}
+
+	private final String message;
+
+}
