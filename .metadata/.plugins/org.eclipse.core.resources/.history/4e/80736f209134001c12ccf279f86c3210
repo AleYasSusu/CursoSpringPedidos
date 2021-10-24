@@ -1,0 +1,7 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+public class Pagamento {
+	private Long id;
+	private EstadoPagamento estado;
+
+}

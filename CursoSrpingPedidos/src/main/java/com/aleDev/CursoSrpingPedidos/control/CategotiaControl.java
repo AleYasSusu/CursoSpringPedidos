@@ -19,12 +19,12 @@ import io.swagger.annotations.ApiResponses;
 public class CategotiaControl {
 
 	@Autowired
-	private CategoriaService categoriaServiceImpl;
+	private CategoriaService categoriaService;
 	
 	
 	@GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") Long idCategoria) {
-    	ResponseEntity<Categoria> cat = categoriaServiceImpl.findById(idCategoria);
+    	ResponseEntity<Categoria> cat = categoriaService.findById(idCategoria);
         if (cat != null) {
             return ResponseEntity.ok(cat);
         } else {

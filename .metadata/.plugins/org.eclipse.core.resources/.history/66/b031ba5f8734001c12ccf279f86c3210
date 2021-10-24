@@ -1,0 +1,6 @@
+package com.aleDev.CursoSrpingPedidos.entity.ENUM;
+
+public enum TipoCliente {
+	
+
+}

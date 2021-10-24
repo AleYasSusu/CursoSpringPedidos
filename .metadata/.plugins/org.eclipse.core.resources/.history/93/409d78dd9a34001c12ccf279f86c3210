@@ -1,0 +1,33 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+import javax.persistence.Entity;
+
+import com.aleDev.CursoSrpingPedidos.entity.ENUM.EstadoPagamento;
+
+@Entity
+
+public class PagamentoComCartao extends Pagamento{
+	public Integer getNumeroDeParcelas() {
+		return numeroDeParcelas;
+	}
+
+	public void setNumeroDeParcelas(Integer numeroDeParcelas) {
+		this.numeroDeParcelas = numeroDeParcelas;
+	}
+
+	public PagamentoComCartao() {
+		
+	}
+
+	
+
+	private static final long serialVersionUID = 1L;
+
+	public PagamentoComCartao(Long id, EstadoPagamento estado, Pedido pedido,Integer numeroDeparcelas) {
+		super();
+		this.numeroDeParcelas = numeroDeParcelas;
+		
+	}
+
+	private Integer numeroDeParcelas;
+}

@@ -1,0 +1,9 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+import com.aleDev.CursoSrpingPedidos.entity.ENUM.EstadoPagamento;
+
+public class Pagamento {
+	private Long id;
+	private EstadoPagamento estado;
+
+}

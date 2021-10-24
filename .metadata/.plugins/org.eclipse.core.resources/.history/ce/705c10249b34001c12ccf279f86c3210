@@ -1,0 +1,29 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+import javax.persistence.Entity;
+
+import com.aleDev.CursoSrpingPedidos.entity.ENUM.EstadoPagamento;
+
+@Entity
+public class PagamentoComCartao extends Pagamento{
+
+private Integer numeroDeParcelas;
+
+
+
+
+
+
+public PagamentoComCartao(Long id, EstadoPagamento estado, Pedido pedido,Integer numeroDeParcelas) {
+	super(id, estado, pedido);
+	// TODO Auto-generated constructor stub
+}
+
+public Integer getNumeroDeParcelas() {
+	return numeroDeParcelas;
+}
+
+public void setNumeroDeParcelas(Integer numeroDeParcelas) {
+	this.numeroDeParcelas = numeroDeParcelas;
+}
+}

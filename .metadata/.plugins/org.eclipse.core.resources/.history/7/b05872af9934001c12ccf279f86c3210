@@ -1,0 +1,42 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.aleDev.CursoSrpingPedidos.entity.ENUM.EstadoPagamento;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+public class PagamentoComBoleto extends Pagamento {
+	
+	@Temporal(TemporalType.DATE)
+	private Date dataVencimento;
+	@Temporal(TemporalType.DATE)
+	private Date dataPagamento;
+	
+	
+	public PagamentoComBoleto(Long id, EstadoPagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
+		super();
+		this.dataVencimento = dataVencimento;
+		this.dataPagamento = dataPagamento;
+	}
+	
+	
+
+}

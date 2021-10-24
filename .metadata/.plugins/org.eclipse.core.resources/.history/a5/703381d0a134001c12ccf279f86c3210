@@ -1,0 +1,29 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.aleDev.CursoSrpingPedidos.entity.ENUM.EstadoPagamento;
+@Entity
+@Table(name = "pagamentoComCartao", schema = "public")
+public class PagamentoComCartao extends Pagamento implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private Integer numeroDeParcelas;
+	
+	public Integer getNumeroDeParcelas() {
+		return numeroDeParcelas;
+	}
+
+	public void setNumeroDeParcelas(Integer numeroDeParcelas) {
+		this.numeroDeParcelas = numeroDeParcelas;
+	}
+
+	public PagamentoComCartao(Long id, EstadoPagamento estado, Pedido pedido, Integer numeroDeParcelas) {
+		super(id, estado, pedido);
+		this.numeroDeParcelas = numeroDeParcelas;
+		
+	}
+}
