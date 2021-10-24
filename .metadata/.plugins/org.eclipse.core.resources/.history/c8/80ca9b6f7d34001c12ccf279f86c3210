@@ -1,0 +1,18 @@
+package com.aleDev.CursoSrpingPedidos.Service.exception;
+
+public class ObjctNotFoundException extends RuntimeException{
+	private static final long serialVersionUID = 1L;
+
+	
+
+	public ObjctNotFoundException(String message) {
+		super(message);
+		
+	}
+	public ObjctNotFoundException(String msg, Throwable cause) {
+		super(msg, cause);
+		
+	}
+
+	
+}

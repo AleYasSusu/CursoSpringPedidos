@@ -1,0 +1,5 @@
+package com.aleDev.CursoSrpingPedidos.Service;
+
+public interface ProdutoService {
+
+}

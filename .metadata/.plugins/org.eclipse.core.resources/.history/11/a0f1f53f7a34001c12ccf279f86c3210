@@ -1,0 +1,11 @@
+package com.aleDev.CursoSrpingPedidos.Service;
+
+import org.springframework.http.ResponseEntity;
+
+import com.aleDev.CursoSrpingPedidos.entity.Produto;
+
+public interface ProdutoService {
+
+	ResponseEntity<Produto> findById(Long id);
+
+}
