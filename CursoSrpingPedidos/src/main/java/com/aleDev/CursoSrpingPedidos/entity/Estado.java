@@ -20,15 +20,36 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode
 @Table(name = "estado", schema = "public")
 public class Estado implements Serializable {
 	
+public Estado() {
+		
+	}
+public Long getId() {
+	return id;
+}
+public void setId(Long id) {
+	this.id = id;
+}
+public String getNome() {
+	return nome;
+}
+public void setNome(String nome) {
+	this.nome = nome;
+}
+public List<Cidade> getCidades() {
+	return cidades;
+}
+public void setCidades(List<Cidade> cidades) {
+	this.cidades = cidades;
+}
+public Estado(Long id, String nome, List<Cidade> cidades) {
+	super();
+	this.id = id;
+	this.nome = nome;
+	this.cidades = cidades;
+}
 private static final long serialVersionUID = 1L;
 
 @Id

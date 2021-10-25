@@ -1,0 +1,10 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+public class ItensPedido {
+	
+	private ItemPedidoPK id = new ItemPedidoPK();
+	
+	private Double desconto;
+	private Integer quantidade;
+	private Double preco;
+}

@@ -1,0 +1,11 @@
+package com.aleDev.CursoSrpingPedidos.entity;
+
+import javax.persistence.Embeddable;
+
+
+public class ItensPedido {
+	private ItemPedidoPK id = new ItemPedidoPK();
+	private Double desconto;
+	private Integer quantidade;
+	private Double preco;
+}
